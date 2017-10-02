@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Real Estate Investment Calculator</title>          
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+        <script src="js/index.js"></script>
+          <!-- load stylesheets: internal -->
+<!--        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">-->
+<!--		<link href="css/custom.css" rel="stylesheet" media="screen">-->
+        
+        <style type="text/css"> 
+            #outputDiv {
+            display: none;
+            }
+        </style>
+    </head>
+    
+    <body>
+
+        <div id="inputDiv">        
+            <form id="frm1" name="frm1">
+              Address: <input type="text" name="address" id="address"><br>
+              City: <input type="text" name="city" id ="city"><br>
+              State: <input type="text" name="state" id="state"><br><br>
+              Rent: <input type="text" name="rent" id="rent"><br><br>
+              Price: <input type="text" name="price" id="price"><br><br>
+              <input type="button" id="submit" value="Submit">
+            </form>    
+        </div>
+        
+        <div id="outputDiv">
+             <form id="frm2" name="frm2">
+              Mortgage: <input type="text" name="mortgage" id="mortgage" value=""><br>
+              Taxes: <input type="text" name="taxes" id ="taxes"><br>
+              Insurance: <input type="text" name="insurance" id="insurance"><br><br>
+              Wear and Tear: <input type="text" name="wearAndTear" id="wearAndTear"><br><br>
+              Property Manager: <input type="text" name="management" id="management"><br><br>
+              Rent: <input type="text" name="rent" id="rentEstimate" value=""><br><br>
+              Cash Flow: <input type="text" name="cashFlow" id="cashFlow"><br><br>
+              Estimated Return: <input type="text" name="estimatedReturn" id="estimatedReturn"><br><br>              
+            </form>  
+        
+        
+        </div>
+        
+        <div id="zillow">
+            <a href=http://www.zillow.com>
+                <img src="zillowlogo.gif">
+            </a>
+        
+        </div>
+        
+        
+
+    </body>
+</html>
