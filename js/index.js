@@ -61,8 +61,8 @@ function getCurrentTabUrl(callback) {
 
 function getPropertyDetailsByZpid(zpid, parameters, callback) {
     var xhttp = new XMLHttpRequest();
-//    var url = 'http://www.iuqiddis07.com/property/' + zpid + formatParams(parameters);
-    var url = 'http://localhost:8080/property/' +  zpid + formatParams(parameters);
+    var url = 'http://www.iuqiddis07.com/property/' + zpid + formatParams(parameters);
+//    var url = 'http://localhost:8080/property/' +  zpid + formatParams(parameters);
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             callback(this.responseText)
@@ -75,8 +75,8 @@ function getPropertyDetailsByZpid(zpid, parameters, callback) {
 
 function getPropertyDetailsByAddressString(addressString, callback) {
     var xhttp = new XMLHttpRequest();
-//    var url = 'http://www.iuqiddis07.com/property/search/' + addressString;
-    var url = 'http://localhost:8080/property/search/' + addressString;
+    var url = 'http://www.iuqiddis07.com/property/search/' + addressString;
+//    var url = 'http://localhost:8080/property/search/' + addressString;
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             callback(this.responseText)
