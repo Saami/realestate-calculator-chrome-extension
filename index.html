@@ -5,53 +5,249 @@
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
         <script src="js/index.js"></script>
-          <!-- load stylesheets: internal -->
-<!--        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">-->
-<!--		<link href="css/custom.css" rel="stylesheet" media="screen">-->
         
         <style type="text/css"> 
-            #outputDiv {
-            display: none;
+            form  { display: table;      }
+            p     { display: table-row; 
+                    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+                    font-size: 14px;
+                }            
+            label { display: table-cell; }
+            input { display: table-cell; }
+
+            html {
+                height: 350px;
+                width: 750px;                
             }
+            .footer {
+                position: absolute;
+                right: 0px;
+                bottom: 0px;
+            }
+                        
+            .collapsible {
+                background-color: #777;
+                color: white;
+                cursor: pointer;
+                padding: 10px;
+                width: 100%;
+                border:none;
+                text-align: left;
+                outline: none;
+                font-size: 15px;
+            }
+
+            .active, .collapsible:hover {
+                background-color: #555;
+            }
+            
+            .collapsible:after {
+                content: '\002B';
+                color: white;
+                font-weight: bold;
+                float: right;
+                margin-left: 5px;
+            }
+            
+            .active:after {
+                content: "\2212";
+                }
+
+            .wrapper {
+                padding: 0 18px;
+                display: none;
+                overflow: hidden;
+                background-color: #f1f1f1;
+            }    
+            .form-group.f1,
+            .form-group.f2{
+                display:inline-block;
+                width:48%;
+                vertical-align: top;
+                }
+
+              .streetView {
+                padding: 0 18px;
+                display: none;
+                overflow: hidden;
+                background-color: #f1f1f1;
+            }            
+            
+            .form-control .unity-input {
+                border-right:0!important;
+                }
+            
+            .unity-input .input-group-addon{
+                background:white!important;
+                border-left:none!important;
+/*                font-weight:bold;*/
+                color:#333;
+                }
+            
         </style>
     </head>
-    
     <body>
-
-        <div id="inputDiv">        
-            <form id="frm1" name="frm1">
-              Address: <input type="text" name="address" id="address"><br>
-              City: <input type="text" name="city" id ="city"><br>
-              State: <input type="text" name="state" id="state"><br><br>
-              Rent: <input type="text" name="rent" id="rent"><br><br>
-              Price: <input type="text" name="price" id="price"><br><br>
-              <input type="button" id="submit" value="Submit">
-            </form>    
-        </div>
-        
-        <div id="outputDiv">
-             <form id="frm2" name="frm2">
-              Mortgage: <input type="text" name="mortgage" id="mortgage" value=""><br>
-              Taxes: <input type="text" name="taxes" id ="taxes"><br>
-              Insurance: <input type="text" name="insurance" id="insurance"><br><br>
-              Wear and Tear: <input type="text" name="wearAndTear" id="wearAndTear"><br><br>
-              Property Manager: <input type="text" name="management" id="management"><br><br>
-              Rent: <input type="text" name="rent" id="rentEstimate" value=""><br><br>
-              Cash Flow: <input type="text" name="cashFlow" id="cashFlow"><br><br>
-              Estimated Return: <input type="text" name="estimatedReturn" id="estimatedReturn"><br><br>              
+    
+        <button class="collapsible">Property Data</button>        
+        <div id="wrapper unity-input" class ="wrapper">   
+            <div id="input1 unity-input" class="form-group f1">   
+            <form id="frm1" name="frm1" class = "frm1">
+                <p>
+                    <label for="address">Address:</label>
+                    <input type="text" name="address" id="address" readonly='readonly'>
+                </p>
+                
+                <p>
+                    <label for="city">City:</label>
+                    <input type="text" name="city" id ="city" readonly='readonly'>                    
+                </p>
+                
+                <p>
+                    <label for="state">State:</label>
+                    <input type="text" name="state" id="state" readonly='readonly'>
+                </p>
+                
+                <p>
+                    <label for="price">Price:</label>
+                    <span class="input-group-addon" id="basic-addon2">$</span>
+                    <input type="number" class="form-control" name="price" id="price" min="10000" step="500" value="0">
+                </p>
+                
+                <p>
+                    <label for="rent">Rent:</label>
+                    <span class="input-group-addon" id="basic-addon2">$</span>
+                    <input type="number" name="rent" id="rent" min="100" max="10000" step="10" value="0">
+                </p>
+                
+                <p>
+                    <label for="downPercent">Down Payment Percent:</label>
+                    <input type="number" name="downPercent" id="downPercent" value="20" step="1">
+                    <span class="input-group-addon" id="basic-addon2">%</span>
+                </p>
+                
+                 <p>
+                    <label for="downPayment">Down Payment:</label>
+                    <span class="input-group-addon" id="basic-addon2">$</span>
+                    <input type="text" name="downPayment" id="downPayment" value="" readonly="readonly">              
+                </p>
+                
+                   <p>
+                    <label for="interestRate">Interest Rate:</label>
+                    <input type="number" name="interestRate" id="interestRate" value="5.7" step="0.1">
+                    <span class="input-group-addon" id="basic-addon2">%</span>
+                </p>
+                                                
+                <p>
+                    <label for="mortgage">Mortgage:</label>
+                    <span class="input-group-addon" id="basic-addon2">$</span>
+                    <input type="text" name="mortgage" id="mortgage" value="" readonly="readonly">              
+                </p>
+                
+                <p>
+                    <label for="hoa">HOA:</label>
+                    <span class="input-group-addon" id="basic-addon2">$</span>
+                    <input type="number" name="hoa" id="hoa" value="0" step="10">
+                </p>
+                
+                 <p>
+                    <label for="taxRate">Tax Rate:</label>
+                    <input type="number" name="taxRate" id ="taxRate" value="1.40" step=".1" >
+                    <span class="input-group-addon" id="basic-addon2">%</span>
+                </p>
+                
+                <p>
+                    <label for="taxes">Taxes:</label>
+                    <span class="input-group-addon" id="basic-addon2">$</span>
+                    <input type="text" name="taxes" id ="taxes" readonly="readonly">                
+                </p>
+                               
+                </form>  
+            </div>  
+                
+            <div id="input2 unity-input" class ="form-group f1">      
+            <form id="frm2" name="frm2" class = "frm2">
+                
+                <p>
+                    <label for="insurance">Insurance:</label>
+                    <span class="input-group-addon" id="basic-addon2">$</span>
+                    <input type="text" name="insurance" id="insurance" value = 70>
+                </p>
+                
+                <p>
+                    <label for="wearAndTearPercent">Wear And Tear Percent:</label>
+                    <input type="number" name="wearAndTearPercent" id="wearAndTearPercent" value="15" step="5" min="0">
+                    <span class="input-group-addon" id="basic-addon2">%</span>
+                </p>
+                
+                <p>
+                    <label for="wearAndTear">Wear And Tear:</label>
+                    <span class="input-group-addon" id="basic-addon2">$</span>
+                    <input type="text" name="wearAndTear" id="wearAndTear" readonly="readonly">
+                </p>
+                
+                                
+                <p>
+                    <label for="managementRate">Property Manager Rate:</label>
+                    <input type="number" name="managementRate" id="managementRate" step="1" min="0" max="12" value = 8>      
+                    <span class="input-group-addon" id="basic-addon2">%</span>
+                </p>
+                
+                <p>
+                    <label for="management">Property Manager:</label>
+                    <span class="input-group-addon" id="basic-addon2">$</span>
+                    <input type="text" name="management" id="management" readonly="readonly">
+                </p>
+                
+                <p>
+                    <label for="closingCosts">Closing Costs:</label>
+                    <span class="input-group-addon" id="basic-addon2">$</span>
+                    <input type="text" name="closingCosts" id="closingCosts" value="2000" step="100">
+                </p>
+                
+                <p>
+                    <label for="cashFlow">Cash Flow:</label>
+                    <span class="input-group-addon" id="basic-addon2">$</span>
+                    <input type="text" name="cashFlow" id="cashFlow" readonly="readonly">
+                </p>
+                
+                <p>
+                    <label for="estimatedReturn">Estimated Return:</label>
+                    <input type="text" name="estimatedReturn" id="estimatedReturn" readonly="readonly">
+                    <span class="input-group-addon" id="basic-addon2">%</span>
+                </p>
+                
+                 <p>
+                    <label for="cashToClose">Cash To Close:</label>
+                    <input type="text" name="cashToClose" id="cashToClose" readonly="readonly">
+                    <span class="input-group-addon" id="basic-addon2">%</span>
+                </p>
+                
+                <p>
+                    <input type="button" id="refresh" value="Refresh">
+                </p>             
+                
             </form>  
-        
-        
+            </div>             
         </div>
         
-        <div id="zillow">
+        <button class="collapsible">Street View</button> 
+            <div id="streetView" class = "streetView">
+            <iframe id="streetViewIframe"
+                width="700"
+                height="400"
+                frameborder="0" style="border:0">
+                </iframe>
+            </div>
+                
+        
+<!--
+        <div id="zillow" class = "footer">
             <a href=http://www.zillow.com>
                 <img src="zillowlogo.gif">
             </a>
         
-        </div>
-        
-        
+        </div>        
+-->
 
     </body>
 </html>
