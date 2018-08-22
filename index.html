@@ -71,7 +71,13 @@
                 display: none;
                 overflow: hidden;
                 background-color: #f1f1f1;
-            }            
+            }    
+             .comps {
+                padding: 0 18px;
+                display: none;
+                overflow: hidden;
+                background-color: #f1f1f1;
+            } 
             
             .form-control .unity-input {
                 border-right:0!important;
@@ -108,7 +114,7 @@
                 </p>
                 
                 <p>
-                    <label for="price">Price:</label>
+                    <label for="price">Price(<a href="" target="_blank" id="compLink">comps</a>):</label>
                     <span class="input-group-addon" id="basic-addon2">$</span>
                     <input type="number" class="form-control" name="price" id="price" min="10000" step="500" value="0">
                 </p>
@@ -218,8 +224,8 @@
                 
                  <p>
                     <label for="cashToClose">Cash To Close:</label>
+                     <span class="input-group-addon" id="basic-addon2">$</span>
                     <input type="text" name="cashToClose" id="cashToClose" readonly="readonly">
-                    <span class="input-group-addon" id="basic-addon2">%</span>
                 </p>
                 
                 <p>
@@ -238,6 +244,8 @@
                 frameborder="0" style="border:0">
                 </iframe>
             </div>
+        
+          
                 
         
 <!--

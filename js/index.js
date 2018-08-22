@@ -105,10 +105,15 @@ function populateInputFields(propertyDetail) {
     document.getElementById("cashFlow").value = propertyDetail.cashFlow;   
     document.getElementById("estimatedReturn").value = propertyDetail.estimatedReturn;   
     document.getElementById("cashToClose").value = propertyDetail.cashToClose;   
+        
     
     //populate streetview  iframe
      streetviewUrl = 'https://www.google.com/maps/embed/v1/streetview?key=AIzaSyBg7tAf_4zkMLwlLXqtRB-dNi080T86VMQ&location=' + propertyDetail.lat + ', ' + propertyDetail.long
     document.getElementById("streetViewIframe").src = streetviewUrl;
+    
+    //populate comps link
+     compsUrl = 'https://www.zillow.com/homes/comps/' + zpid + '_zpid';
+    document.getElementById("compLink").setAttribute("href", compsUrl);
     
     if (propertyDetail.cashFlow.startsWith('-')) {
                 document.getElementById("cashFlow").style.color = "#ff0000";
